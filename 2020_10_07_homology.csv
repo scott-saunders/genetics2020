@@ -1,0 +1,13 @@
+﻿exp,homology,replicate,LB,Kan
+1kb_deletion,62,1,20000000,60000
+1kb_deletion,62,2,27000000,59000
+1kb_deletion,52,1,15000000,20000
+1kb_deletion,52,2,17000000,34000
+1kb_deletion,42,1,8000000,2300
+1kb_deletion,42,2,15000000,1100
+1kb_deletion,32,1,10000000,220
+1kb_deletion,32,2,8000000,110
+1kb_deletion,22,1,8000000,120
+1kb_deletion,22,2,15000000,270
+1kb_deletion,pDel_only,1,15000000,310
+1kb_deletion,pDel_only,2,16000000,410

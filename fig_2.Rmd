@@ -1,0 +1,50 @@
+---
+title: "More figures"
+author: 'Scott Saunders'
+output:
+  html_document:
+    theme: cosmo
+    highlight: tango
+    code_folding: show
+    toc: yes
+    keep_md: true
+---
+
+--------
+
+Setup packages and plotting for the notebook:
+
+```{r setup, echo=T, message=FALSE, warning=FALSE}
+# Load packages
+library(tidyverse)
+library(cowplot)
+library(kableExtra)
+library(broom)
+library(modelr)
+library(scales)
+
+# Code display options
+knitr::opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=FALSE, echo = TRUE, message=FALSE, warning=FALSE, fig.align="center", fig.retina = 2)
+
+# Load plotting tools
+source("tools/plotting_tools.R")
+
+
+#Modify the plot theme
+theme_set(theme_notebook())
+```
+
+```{r}
+
+df_1 <- read_csv('2020_10_07_homology.csv') %>% mutate(eff = Kan / LB)
+
+df_1$homology <- factor(df_1$homology, levels = c('62','52','42','32','22','pDel_only'))
+
+ggplot(df_1, aes(x = homology, y = eff)) + geom_point(shape = 21) +stat_summary(fun = 'mean',geom = 'point')+ scale_y_log10(labels = percent)
+```
+
+```{r}
+df_2 <- read_csv('2020_10_15_ara_recovery.csv') %>% mutate(eff = Kan / LB)
+
+ggplot(df_2 %>% filter(arabinose == 1), aes(x = timepoint, y = eff, color = condition)) + geom_point()
+```
